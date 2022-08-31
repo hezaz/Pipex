@@ -6,14 +6,13 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 18:11:18 by hzaz              #+#    #+#             */
-/*   Updated: 2022/08/26 20:31:07 by hzaz             ###   ########.fr       */
+/*   Updated: 2022/08/31 16:25:19 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-# include "../libft/libft.h"
-# include "get_next_line.h"
+# include "libft/libft.h"
 
 #endif

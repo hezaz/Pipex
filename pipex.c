@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 18:12:02 by hzaz              #+#    #+#             */
-/*   Updated: 2022/08/31 14:59:12 by hzaz             ###   ########.fr       */
+/*   Updated: 2022/09/01 01:22:32 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,17 +77,37 @@ char	*file_tochar(char **file)
 	free(file);
 }
 
+char	*path_cmd( char *envp[])
+{
+	int		i;
+	int		j;
+	char	*ret;
 
+	j = 0;
+	i = 0;
+	while (envp[i] && envp)
+	{
+		if (envp[i][0] == 'P')
+			if (envp[i][1] == 'A')
+				if (envp[i][2] == 'T')
+					if (envp[i][3] == 'H' )
+						if (++j)
+							break ;
+		printf("\nvoila:  %s\n",envp[++i]);
+	}
+	if (j)
+		printf("\noui\n");
+	else
+		printf("\nnon\n");
+	return (ret);
+}
 
 int	main(int ac, char *av[], char *envp[])
 {
-	int	i,j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	while (envp[i])
-	{
-		printf("\n%s\n", envp[i]);
-		i++;
-	}
+	char *ret = path_cmd(envp);
 }
