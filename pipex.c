@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 18:12:02 by hzaz              #+#    #+#             */
-/*   Updated: 2022/09/01 01:22:32 by hzaz             ###   ########.fr       */
+/*   Updated: 2022/09/01 03:18:37 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,29 +77,32 @@ char	*file_tochar(char **file)
 	free(file);
 }
 
-char	*path_cmd( char *envp[])
+void	exec_cmd( char *envp[], char *cmd, char *argv[])
 {
 	int		i;
 	int		j;
+	int		k;
 	char	*ret;
 
 	j = 0;
-	i = 0;
-	while (envp[i] && envp)
+	i = -1;
+	while (envp[++i] != NULL && envp)
 	{
-		if (envp[i][0] == 'P')
-			if (envp[i][1] == 'A')
-				if (envp[i][2] == 'T')
-					if (envp[i][3] == 'H' )
-						if (++j)
-							break ;
-		printf("\nvoila:  %s\n",envp[++i]);
+		ret = ft_substr(envp[i], 0, 4);
+		if (ft_same_str(ret, "PATH=", 4) == 1)
+		{
+			j = 5;
+			while (envp[i][j] && envp[i][j] != '\0' && envp)
+			{
+				k = (++j);
+				while (envp[i][j] != ':' && envp[i][j] && envp)
+					j++;
+				ret = ft_strjoin_free1(ft_substr(envp[i], k, ((j) - k)), cmd);
+				if (envp[i][j] == ':')
+					execve(ret, argv, envp);
+			}
+		}
 	}
-	if (j)
-		printf("\noui\n");
-	else
-		printf("\nnon\n");
-	return (ret);
 }
 
 int	main(int ac, char *av[], char *envp[])
@@ -107,7 +110,11 @@ int	main(int ac, char *av[], char *envp[])
 	int	i;
 	int	j;
 
+
 	i = 0;
 	j = 0;
-	char *ret = path_cmd(envp);
+
+	/*while (envp[i])
+		printf("\n%s\n", envp[i++]);*/
+	exec_cmd(envp, "/mkdir", av);
 }
