@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 18:12:02 by hzaz              #+#    #+#             */
-/*   Updated: 2022/09/01 03:18:37 by hzaz             ###   ########.fr       */
+/*   Updated: 2022/09/01 03:26:24 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ void	exec_cmd( char *envp[], char *cmd, char *argv[])
 	i = -1;
 	while (envp[++i] != NULL && envp)
 	{
-		ret = ft_substr(envp[i], 0, 4);
-		if (ft_same_str(ret, "PATH=", 4) == 1)
+		ret = ft_substr(envp[i], 0, 5);
+		if (ft_same_str(ret, "PATH=", 5) == 1)
 		{
 			j = 5;
 			while (envp[i][j] && envp[i][j] != '\0' && envp)
