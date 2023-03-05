@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 18:12:02 by hzaz              #+#    #+#             */
-/*   Updated: 2023/02/01 03:23:34 by hzaz             ###   ########.fr       */
+/*   Updated: 2023/03/05 03:19:50 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 int	erreur(char c)
 {
+	if (c == 'a')
+	{
+		perror("Usage: infile cmd1 cmd2  outfile\n");
+		return (1);
+	}
 	if (c == 'm')
 	{
 		perror("fork Error");
-		return (-1);
-	}
-	if (c == 'o')
-	{
-		perror("fork Error");
 		exit(EXIT_FAILURE);
-		return (-1);
+		return (1);
 	}
 	return (0);
 }
@@ -54,12 +54,10 @@ void	exec_cmd( char *envp[], char *cmd)
 				while (envp[i][j] != ':' && envp[i][j] && envp)
 					j++;
 				ret = ft_strjoin_free1(ft_substr(envp[i], k, ((j) - k)), f[0]);
-				//printf("\n%s\n", envp[i]);
+
 				if (envp[i][j] == ':')
 					if (access(ret, F_OK) == 0)
-					{
 						execve(ret, f, envp);
-					}
 
 			}
 		}
@@ -103,6 +101,7 @@ int	main(int ac, char *av[], char *envp[])
 
 	if (ac != 5)
 		return(erreur('a'));
+
 	if (pipe(fd) == -1)
 		return (-1);
 	pid = fork();
@@ -112,7 +111,4 @@ int	main(int ac, char *av[], char *envp[])
 		process_c(av, envp, fd);
 	wait(NULL);
 	process_p(av, envp, fd);
-
-
-
 }

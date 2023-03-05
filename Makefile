@@ -14,7 +14,9 @@ FLAGS    := -Wall -Wextra -Werror
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=      libft/ft_strnstr.c \
+SRCS        :=      bonus/src/pipex_bonus.c \
+                          mandatory/src/pipex.c \
+                          libft/ft_strnstr.c \
                           libft/ft_isdigit.c \
                           libft/ft_lstadd_back.c \
                           libft/ft_putstr_fd.c \
@@ -68,7 +70,6 @@ SRCS        :=      libft/ft_strnstr.c \
                           libft/ft_lstdelone.c \
                           libft/ft_itoa.c \
                           libft/ft_tolower.c \
-                          src/pipex.c \
                           
 OBJS        := $(SRCS:.c=.o)
 
