@@ -1,11 +1,9 @@
-total 144
--rw-r--r--    1 administrateur  staff   4353 Mar  3 22:00 Makefile
--rwxr-xr-x    1 administrateur  staff  54176 Mar  5 03:52 a.out
-drwxr-xr-x    5 administrateur  staff    160 Mar  5 03:48 bonus
--rw-r--r--    1 administrateur  staff     19 Mar  1 17:53 infile
-drwxr-xr-x  111 administrateur  staff   3552 Mar  3 22:00 libft
-drwxr-xr-x    4 administrateur  staff    128 Mar  1 18:21 mandatory
--rw-r--r--    1 administrateur  staff      0 Mar  5 03:52 out
--rwxr-xr-x    1 administrateur  staff    675 Mar  5 03:43 outfile
-drwxr-xr-x   14 administrateur  staff    448 Mar  1 16:24 pipex-tester
-drwxr-xr-x    9 administrateur  staff    288 Mar  1 16:35 pipex_tester_42
+Makefile
+a.out
+bonus
+infile
+libft
+mandatory
+out
+outfile
+t

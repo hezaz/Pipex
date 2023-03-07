@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 19:46:17 by hzaz              #+#    #+#             */
-/*   Updated: 2023/03/05 03:47:31 by hzaz             ###   ########.fr       */
+/*   Updated: 2023/03/06 14:31:19 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ void	in_process(int tab[3], int fd[2], int argc)
 	}
 	else if (tab[2] == argc - 2)
 	{
-		close(fd[1]);
+		close(
+			fd[1]);
 		dup2(fd[0], STDIN_FILENO);
 		dup2(tab[1], STDOUT_FILENO);
 	}
