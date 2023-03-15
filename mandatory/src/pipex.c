@@ -6,7 +6,7 @@
 /*   By: hzaz <hzaz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 18:12:02 by hzaz              #+#    #+#             */
-/*   Updated: 2023/03/05 03:19:50 by hzaz             ###   ########.fr       */
+/*   Updated: 2023/03/16 00:13:54 by hzaz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,8 @@ void	exec_cmd( char *envp[], char *cmd)
 
 			}
 		}
-
 	}
-
-
+	ft_ulti_double_free(&f, ret);
 }
 
 void	process_p(char	**av, char **envp,int *fd)
@@ -79,6 +77,7 @@ void	process_p(char	**av, char **envp,int *fd)
 	dup2(outf, STDOUT_FILENO);
 	close(fd[1]);
 	exec_cmd(envp, av[3]);
+	close(outf);
 }
 
 void	process_c(char	**av, char **envp,int *fd)
@@ -91,6 +90,7 @@ void	process_c(char	**av, char **envp,int *fd)
 	dup2(fd[1], STDOUT_FILENO);
 	close(fd[0]);
 	exec_cmd(envp, av[2]);
+	close(inf);
 }
 
 
